@@ -24,7 +24,7 @@ public class Programa {
 		String carro = sc.nextLine();
 		System.out.print("Data da retirada: dd/mm/yyyy hh/ss:");
 		Date retirada = sdf.parse(sc.nextLine());
-		System.out.println("Data da Devoulção: dd/mm/yyyy hh/ss:");
+		System.out.print("Data da Devoulção: dd/mm/yyyy hh/ss:");
 		Date devolucao = sdf.parse(sc.nextLine());
 		
 		AluguelDeCarro cr = new AluguelDeCarro(retirada, devolucao, new Veiculos(carro)); 

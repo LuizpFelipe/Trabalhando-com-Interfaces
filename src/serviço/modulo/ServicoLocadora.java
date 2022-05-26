@@ -7,12 +7,12 @@ public class ServicoLocadora {
 	private Double precoProDia;
 	private Double precoPorHora;
 	
-	private BrasilTaxa taxabrail;
+	private TaxaDeServico taxaDeServico;
 
-	public ServicoLocadora(Double precoProDia, Double precoPorHora, BrasilTaxa taxabrail) {
+	public ServicoLocadora(Double precoProDia, Double precoPorHora, TaxaDeServico taxaDeServico) {
 		this.precoProDia = precoProDia;
 		this.precoPorHora = precoPorHora;
-		this.taxabrail = taxabrail;
+		this.setTaxaDeServico(taxaDeServico);
 	}
 
 	public Double getPrecoProDia() {
@@ -30,13 +30,13 @@ public class ServicoLocadora {
 	public void setPrecoPorHora(Double precoPorHora) {
 		this.precoPorHora = precoPorHora;
 	}
-
-	public BrasilTaxa getTaxabrail() {
-		return taxabrail;
+	
+	public TaxaDeServico getTaxaDeServico() {
+		return taxaDeServico;
 	}
 
-	public void setTaxabrail(BrasilTaxa taxabrail) {
-		this.taxabrail = taxabrail;
+	public void setTaxaDeServico(TaxaDeServico taxaDeServico) {
+		this.taxaDeServico = taxaDeServico;
 	}
 	
 	public void gerandoFatura(AluguelDeCarro aluguelDeCarro) {
@@ -50,8 +50,10 @@ public class ServicoLocadora {
 			basicoPagamento = Math.ceil(horas / 24) * precoProDia; 
 		}
 		
-		double taxa = taxabrail.BrasilTaxa(basicoPagamento);
+		double taxa = taxaDeServico.taxaDeServico(basicoPagamento);
 		
 		aluguelDeCarro.setFatura(new Fatura(basicoPagamento, taxa));
 	}
+
+	
 }

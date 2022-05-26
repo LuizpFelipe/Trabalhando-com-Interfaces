@@ -1,9 +1,10 @@
 package serviço.modulo;
 
-public class BrasilTaxa {
-	private Double brasilTaxa;
+public class BrasilTaxa implements TaxaDeServico{
 
-	public double BrasilTaxa(double valor) {
+	
+	@Override
+	public double taxaDeServico(double valor) {
 		if(valor <= 100) {
 			return valor * 0.2;
 		}else{
@@ -12,4 +13,6 @@ public class BrasilTaxa {
 		}
 		
 	}
+
+	
 }
